@@ -1,1 +1,2 @@
-# scoala-informala-homework
+ This is s test for git!
+
