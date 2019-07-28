@@ -72,8 +72,8 @@ public class Persoane {
 		hobbies3.add(chess);
 		hobbies3.add(cyclism);
 		
-		
-		HashMap<Persoane, List<Hobby>> map = new HashMap<>();
+//		defined an HashMap with key: Persoane and value: List<Hobby>
+		Map<Persoane, List<Hobby>> map = new HashMap<>();
 		map.put(student, hobbies1);
 		map.put(angajat, hobbies2);
 		map.put(somer, hobbies3);
@@ -91,6 +91,10 @@ public class Persoane {
 		// using values() for iteration over keys
 		for (List<Hobby> h : map.values())
 			System.out.println("value: " + hobbies1);
+		
+		
+		
+		
 	}
 	
 	
