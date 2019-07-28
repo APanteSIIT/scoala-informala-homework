@@ -11,8 +11,7 @@ public class Angajat extends Persoane {
 	
 	@Override
 	public String toString() {
-		return "Angajat{" +
-				"hobby=" + hobby +
+		return "Angajat{" + "name="+super.getName()+ ", age="+super.getAge()+
 				'}';
 	}
 }

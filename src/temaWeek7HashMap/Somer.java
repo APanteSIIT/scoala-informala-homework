@@ -10,8 +10,7 @@ public class Somer extends Persoane {
 	}
 	@Override
 	public String toString() {
-		return "Somer{" +super.getName()+ ", "+super.getAge()+", "+
-				"hobby=" + hobby +
+		return "Somer{"+"name=" +super.getName()+ ", age"+super.getAge()+
 				'}';
 	}
 }

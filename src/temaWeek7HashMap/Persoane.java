@@ -13,22 +13,19 @@ package temaWeek7HashMap;
 //		USE THE ALREADY DEFINED CLASSES: PERSOANA, SOMER, ANGAJAT, STUDENT; ADRESA; TARA;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Persoane {
-
+	
 	private String name;
 	private int age;
 	Hobby hobby;
 	
 	//	class constructor
-	public Persoane (String name, int age) {
+	public Persoane(String name, int age) {
 		this.name = name;
-		this.age=age;
-
+		this.age = age;
+		
 	}
 	
 	public String getName() {
@@ -49,41 +46,55 @@ public class Persoane {
 	
 	
 	public static void main(String[] args) {
-		Student student=new Student("Ionel",25);
-		Somer somer=new Somer("Vasile",55);
-		Angajat angajat=new Angajat("Maria",35);
+		Student student = new Student("Ionel", 25);
+		Somer somer = new Somer("Vasile", 55);
+		Angajat angajat = new Angajat("Maria", 35);
 		
-		Adresa adresa1=new Adresa("Campuilui",1,"Rasnov","Ro");
-		Adresa adresa2=new Adresa("Zorilor",25,"Brasov","Ro");
-		Adresa adresa3=new Adresa("Victoriei",55,"Bucuresti","Ro");
-		Adresa adresa4=new Adresa("Republicii",55,"Zarnesti","Ro");
+		Adresa adresa1 = new Adresa("Campuilui", 1, "Rasnov", "Ro");
+		Adresa adresa2 = new Adresa("Zorilor", 25, "Brasov", "Ro");
+		Adresa adresa3 = new Adresa("Victoriei", 55, "Bucuresti", "Ro");
+		Adresa adresa4 = new Adresa("Lincoln Avenue", 55, "Washington", "USA");
 		
-		Hobby cyclism=new Hobby("cyclism",2,adresa1);
-		Hobby football=new Hobby("football",1,adresa2);
-		Hobby handball=new Hobby("handball",3,adresa3);
-		Hobby chess=new Hobby("chess",3,adresa4);
+		Hobby cyclism = new Hobby("cyclism", 2, adresa1);
+		Hobby football = new Hobby("football", 1, adresa2);
+		Hobby handball = new Hobby("handball", 3, adresa3);
+		Hobby chess = new Hobby("chess", 3, adresa4);
 		
-		List<Hobby> hobbies1=new ArrayList<>();
-		List<Hobby> hobbies2=new ArrayList<>();
-		List<Hobby> hobbies3=new ArrayList<>();
-		
+		List<Hobby> hobbies1 = new ArrayList<>();
 		hobbies1.add(cyclism);
 		hobbies1.add(football);
+		
+		List<Hobby> hobbies2 = new ArrayList<>();
 		hobbies2.add(handball);
 		hobbies2.add(chess);
+		
+		List<Hobby> hobbies3 = new ArrayList<>();
 		hobbies3.add(chess);
 		hobbies3.add(cyclism);
 		
 		
-		HashMap<Persoane,List<Hobby>> map=new HashMap<>();
-		map.put(student,hobbies1);
-		map.put(angajat,hobbies2);
-		map.put(somer,hobbies3);
+		HashMap<Persoane, List<Hobby>> map = new HashMap<>();
+		map.put(student, hobbies1);
+		map.put(angajat, hobbies2);
+		map.put(somer, hobbies3);
 		
-		System.out.println(map.get(student));
 	
+		// forEach(action) method to iterate map
+		map.forEach((k,v) -> System.out.println("Key = "
+				+ k + ", Value = " + v));
+//		// using for-each loop for iteration over Map.entrySet()
+		System.out.println(map.containsKey(student));
+		for (Map.Entry<Persoane, List<Hobby>> entry : map.entrySet()) {
+			System.out.println("Key=" + entry.getKey() + "value=" + entry.getValue());
+		}
 		
+		// using values() for iteration over keys
+		for (List<Hobby> h : map.values())
+			System.out.println("value: " + hobbies1);
 	}
+	
+	
+
 	
 	@Override
 	public boolean equals(Object o) {
@@ -91,13 +102,13 @@ public class Persoane {
 		if (o==null || getClass()!=o.getClass()) return false;
 		Persoane persoane = (Persoane) o;
 		return age==persoane.age &&
-				Objects.equals(name, persoane.name) &&
-				Objects.equals(hobby, persoane.hobby);
+				Objects.equals(name, persoane.name) ;
+				
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, age, hobby);
+		return Objects.hash(name, age);
 	}
 	
 	@Override
