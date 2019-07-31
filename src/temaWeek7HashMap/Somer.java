@@ -8,8 +8,7 @@ public class Somer extends Persoane {
 		super(name,age);
 		
 	}
-	
-	@Override
+		@Override
 	public String toString() {
 		return "Somer{"+"name=" +super.getName()+ ", age"+super.getAge()+
 				'}';

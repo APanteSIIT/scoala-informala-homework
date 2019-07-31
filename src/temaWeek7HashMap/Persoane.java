@@ -13,7 +13,6 @@ package temaWeek7HashMap;
 //		USE THE ALREADY DEFINED CLASSES: PERSOANA, SOMER, ANGAJAT, STUDENT; ADRESA; TARA;
 
 
-
 import java.util.*;
 
 public class Persoane  {

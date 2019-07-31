@@ -8,7 +8,6 @@ public class Student extends Persoane {
 		
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Student{"+"name="+super.getName()+ ", age="+super.getAge()+
