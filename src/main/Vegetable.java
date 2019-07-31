@@ -1,5 +1,6 @@
 package main;
 
+
 public class Vegetable extends Product {
 	private String vitamin;
 	

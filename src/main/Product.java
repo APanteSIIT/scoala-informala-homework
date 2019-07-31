@@ -5,7 +5,6 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-
 //this is the superclass products which is extended by the Animal and Vegetable classes
 public class Product {
 	
@@ -15,7 +14,6 @@ public class Product {
 	private double weight;
 	private String ID;
 	Scanner scan=new Scanner(System.in);
-	
 	
 	//	constructor of the Product class
 	public Product(String name, double price, String validityDate, double weight, String ID) {
