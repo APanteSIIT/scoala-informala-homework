@@ -3,7 +3,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-
 //class that holds the sold items
 public class SoldItem{
 	private String saleDate;

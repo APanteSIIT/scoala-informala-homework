@@ -1,7 +1,7 @@
 package main;
 //subclass of Product class
+
 public class Animal extends Product {
-	
 	
 	private String storageTemp;
 	

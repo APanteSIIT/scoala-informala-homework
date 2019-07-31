@@ -1,6 +1,5 @@
 package main;
 
-
 import java.util.Scanner;
 //class that holds the items in the stock and adds an extra property:quantity
 public class StockItem {
