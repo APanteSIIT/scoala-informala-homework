@@ -3,6 +3,7 @@ package temaWeek8Exception.main;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,7 @@ public class Main {
 	Scanner sc = new Scanner(System.in);
 	Student student = new Student(firstName, lastName, dateOfBirth, gender, ID);
 	List<Student> studentRepo=new ArrayList<>();
+	List<Student> sameAge=new ArrayList<>();
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -38,8 +40,9 @@ public class Main {
 				
 				}
 				case "2": {
-					System.out.println("This is the studentRepo:");
-					System.out.println(main.studentRepo);
+					System.out.println("Type age:");
+					List<Student> sameAge=main.retrieveStudent(main.studentRepo);
+					System.out.println(main.sameAge);
 				}
 			}
 			
@@ -106,20 +109,30 @@ public class Main {
 				notSucces = true;
 			}
 		} while (notSucces);
+		
 		Student s=new Student(firstName, lastName, dateOfBirth, gender, ID);
 		System.out.println(s);
 		return s;
 	}
-	public List<Student> retrieveStudent (List<Student> sameAge){
-		try {
-			int input = Integer.parseInt(sc.next());
-		}catch (NumberFormatException e){
-			System.out.println("Invalid input");
-		}
-		int birthYear=Integer.parseInt(student.getDateOfBirth());
-		int age= Year.now().getValue()-birthYear;
+	public List<Student> retrieveStudent (List<Student> studentRepo) {
+		boolean notSucces = true;
+		int input = 0;
+		do {
+			try {
+				input = Integer.parseInt(sc.next());
+				notSucces = false;
+			} catch (NumberFormatException | NoSuchElementException | IllegalStateException e) {
+				System.out.println("Invalid input");
+			}
+		} while (notSucces);
+		int birthYear = Year.now().getValue() - input;
+		String year = Integer.toString(birthYear);
 		
+		for (Student st : studentRepo) {
+			if (year.equals(st.getDateOfBirth())) {
+				sameAge.add(st);
+			}
+		}
 		return sameAge;
 	}
-	
 }

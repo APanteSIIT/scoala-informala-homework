@@ -25,7 +25,7 @@ public class Student {
 		this.gender = gender;
 		this.ID = ID;
 	}
-//	nested class ExtendedException wich creates custom exception extended from RuntimeException class
+//	nested class ExtendedException which creates custom exception extended from RuntimeException class
 	public class ExtendedException extends RuntimeException {
 		public ExtendedException(String message) {
 			super(message);
