@@ -1,4 +1,4 @@
-package temaWeek8Exception.test;
+package temaWeek8Exception.main;
 
 import org.junit.Test;
 import temaWeek8Exception.main.Repository;
@@ -84,8 +84,14 @@ public class StudentTest {
 	@Test
 	public void testCreateStudent (){
 		Repository rep=new Repository();
-		rep.createStudent("Ana","Marin","1900","f","1111111111111");
+		String firstName = "b";
+		String lastName = "a";
+		String dateOfBirth = "1900";
+		String gender = "f";
+		String ID = "1111111111111";
+		Student s=rep.createStudent(firstName,lastName,dateOfBirth,gender,ID);
 		
 	}
+	
 	
 }

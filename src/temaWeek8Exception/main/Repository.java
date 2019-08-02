@@ -17,42 +17,12 @@ public class Repository {
 	
 	
 	public Student createStudent(String firstName, String lastName, String dateOfBirth, String gender, String ID) {
-//		adds student firstName by calling addFirstName method from Student class
-			try {
-				firstName = student.addFirstName(firstName);
-			} catch (IllegalArgumentException e) {
-				System.err.println(e.getMessage());
-			}
-
-//		adds student lastName by calling addLastName method from Student class
-			try{
-				lastName=student.addLastName(lastName);
-			} catch (IllegalArgumentException e) {
-				System.err.println( e.getMessage());
-			}
-	
-//	adds student dateOfBirth by calling addDateOfBirth method from Student class
-			try {
-				dateOfBirth=student.addDateOfBirth(dateOfBirth);
-			} catch (Student.ExtendedException e) {
-				System.err.println( e.getMessage());
-			}
-	
-
-// adds gender by calling addGender	method from Student class
-			try {
-				gender=student.addGender(gender);
-			} catch (IllegalArgumentException | Student.ExtendedException e) {
-				System.err.println(e.getMessage());
-			}
-		
-//	adds ID by calling addID method from Student class
-			try {
-				ID=student.addID(ID);
-			} catch (IllegalArgumentException | Student.ExtendedException e) {
-				System.err.println(e.getMessage());
-			}
-		
+//
+		firstName = student.addFirstName(firstName);
+		lastName=student.addLastName(lastName);
+		dateOfBirth=student.addDateOfBirth(dateOfBirth);
+		gender=student.addGender(gender);
+		ID=student.addID(ID);
 			Student s=new Student(firstName, lastName, dateOfBirth, gender, ID);
 	
 		return s;
