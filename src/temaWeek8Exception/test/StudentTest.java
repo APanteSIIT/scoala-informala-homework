@@ -1,7 +1,7 @@
 package temaWeek8Exception.test;
 
 import org.junit.Test;
-import org.junit.*;
+
 import temaWeek8Exception.main.Repository;
 import temaWeek8Exception.main.Student;
 
