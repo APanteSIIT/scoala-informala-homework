@@ -1,6 +1,8 @@
-package temaWeek8Exception.main;
+package temaWeek8Exception.test;
 
 import org.junit.Test;
+import temaWeek8Exception.main.Repository;
+import temaWeek8Exception.main.Student;
 
 
 import java.util.ArrayList;
