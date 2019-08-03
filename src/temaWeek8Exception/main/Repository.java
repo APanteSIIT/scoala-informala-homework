@@ -18,8 +18,6 @@ public class Repository {
 	
 	}
 	
-	
-	
 //	create student method
 	public Student createStudent(String firstName, String lastName, String dateOfBirth, String gender, String ID) {
 
