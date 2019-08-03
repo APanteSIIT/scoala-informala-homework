@@ -2,10 +2,11 @@ package temaWeek8Exception.main;
 /**
  * Class student with the following attributes:first name,
  * last name, date of birth, gender and CNP.
- *
  */
 
 import java.time.Year;
+import java.util.Comparator;
+import java.util.Objects;
 
 public class Student {
 	
@@ -15,7 +16,7 @@ public class Student {
 	private final String gender;
 	private final String ID;
 	
-//	class constructor
+	//	class constructor
 	public Student(String firstName, String lastName, String dateOfBirth, String gender, String ID) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,78 +24,92 @@ public class Student {
 		this.gender = gender;
 		this.ID = ID;
 	}
-//	nested class ExtendedException which creates custom exception extended from RuntimeException class
+	
+	//	nested class ExtendedException which creates custom exception extended from RuntimeException class
 	public static class ExtendedException extends RuntimeException {
 		public ExtendedException(String message) {
 			super(message);
 		}
 		
 	}
-
-//	firstName method which take input from Scanner and throws IllegalArgumentException
+	
+	//	 method to set firstName, throws IllegalArgumentException when has an illegal argument
 	public String addFirstName(String firstName) throws IllegalArgumentException {
 		
-		if (firstName==null||firstName.length()==0) {
+		if (firstName==null || firstName.length()==0) {
 			throw new IllegalArgumentException("Invalid name!");
 		}
 		return firstName;
 	}
-	//	lastName method which take input from Scanner and throws IllegalArgumentException
-	public String addLastName(String lastName)throws IllegalArgumentException {
+	
+	//	 method to set lastName, throws IllegalArgumentException when has an illegal argument
+	public String addLastName(String lastName) throws IllegalArgumentException {
 		
-		if (lastName==null||lastName.length()==0) {
+		if (lastName==null || lastName.length()==0) {
 			throw new IllegalArgumentException("Invalid name!");
 		}
 		return lastName;
 	}
-//	dateOfBirth method which takes input from scanner and throws NumberFormatException and ExtendedException
-	public String addDateOfBirth(String dateOfBirth) throws IllegalArgumentException, ExtendedException{
-		final int y = Year.now().getValue() - 18;//helper int variable
-		int date = 0;
+	
+	//	method to set dateOfBirth,throws NumberFormatException and ExtendedException
+	public String addDateOfBirth(String dateOfBirth) throws NumberFormatException, ExtendedException {
+		
+		final int y = Year.now().getValue() - 18;//calculates the year of birth as an int
+		
 		try {
-			date = Integer.parseInt(dateOfBirth);
-		
-		}catch (IllegalArgumentException e){
-			System.out.println(e.getMessage());
+			int date = Integer.parseInt(dateOfBirth);//transforms method argument into an int
+			
+		} catch (NumberFormatException e) {        //catching the NumberFormatException when argument method is
+			System.err.println(e.getMessage());//not a numeric string type
 		}
-		
-		if (date < 1900 || date > y) {
+		int date = Integer.parseInt(dateOfBirth);
+		if (date < 1900 || date > y) {//conditions for the year of birth
 			throw new ExtendedException("Enter a year between 1900 and current date minus 18");
 		}
 		
 		return dateOfBirth;
 	}
 	
-//	gender method which takes input from scanner and throws NullPointerException and ExtendedException
-	public String addGender(String gender)throws IllegalArgumentException,ExtendedException{
+	//	gender method which takes a String argument and throws IllegalArgumentException and ExtendedException
+	public String addGender(String gender) throws IllegalArgumentException, ExtendedException {
 		
-		if(gender==null||gender.length()==0){
-			throw new IllegalArgumentException ("Enter a valid gender!");}
+		if (gender==null || gender.length()==0) {
+			throw new IllegalArgumentException("Enter a valid gender!");
+		}
 		
-		if((!gender.equalsIgnoreCase("m"))&&(!gender.equalsIgnoreCase("f"))){
+		if ((!gender.equalsIgnoreCase("m")) && (!gender.equalsIgnoreCase("f"))) {
 			throw new ExtendedException("Enter m/f");
 		}
 		
 		return gender;
 	}
+	
 	//	ID method which takes input from scanner and throws NumberFormatException and ExtendedException
-	public String addID(String ID)throws IllegalArgumentException,ExtendedException {
+	public String addID(String ID) throws IllegalArgumentException, ExtendedException {
 		
-		long studentID=0;
-		try{
-			studentID=Long.parseLong(ID);
-		} catch (NumberFormatException e){
-			System.err.println(e.getMessage());
+		try {//takes argument and parse it as a decimal long number
+			long studentID = Long.parseLong(ID);
+		} catch (NumberFormatException e) {
+			System.err.println(e.getMessage());//catches exception if not a decimal numbers
 		}
-		
-		if(ID==null||ID.length()!=13){
+		long studentID = Long.parseLong(ID);
+		int length = String.valueOf(studentID).length();
+		if (studentID==0 || length!=13) {
 			throw new ExtendedException("Enter a 13 digit CNP");
 		}
 		
 		return ID;
 	}
 	
-	
+	public static class StudentComparator implements Comparator {
+		
+		@Override
+		public int compare(Object o1, Object o2) {
+			Student s1 = (Student) o1;
+			Student s2 = (Student) o2;
+			return s1.getFirstName().compareTo(s2.getFirstName());
+		}
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -116,6 +131,23 @@ public class Student {
 	}
 	
 	@Override
+	public boolean equals(Object o) {
+		if (this==o) return true;
+		if (o==null || getClass()!=o.getClass()) return false;
+		Student student = (Student) o;
+		return Objects.equals(firstName, student.firstName) &&
+				Objects.equals(lastName, student.lastName) &&
+				Objects.equals(dateOfBirth, student.dateOfBirth) &&
+				Objects.equals(gender, student.gender) &&
+				Objects.equals(ID, student.ID);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(firstName, lastName, dateOfBirth, gender, ID);
+	}
+	
+	@Override
 	public String toString() {
 		return "Student{" +
 				"firstName='" + firstName + '\'' +
@@ -123,6 +155,6 @@ public class Student {
 				", dateOfBirth='" + dateOfBirth + '\'' +
 				", gender='" + gender + '\'' +
 				", ID=" + ID +
-				'}'+"\n";
+				'}' + "\n";
 	}
 }
