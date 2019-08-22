@@ -15,9 +15,9 @@ public class SkiBiathlonApp {
 		try (Reader reader=new FileReader(file)){
 			list=temaWeek11InputOutput.main.utilities.CSV.read(reader);
 		}catch (FileNotFoundException e){
-		
+			System.out.println("File not found exception");
 		}catch (IOException e){
-		
+			System.out.println("IOException");
 		}
 		
 		for(String[] array:list){
