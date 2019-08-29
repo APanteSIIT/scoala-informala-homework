@@ -35,4 +35,18 @@ public class Person<Date> {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	public enum Gender{
+		FEMALE,MALE;
+		
+		public static Gender getGender(String input){
+			if(input.equals("0")||input.equalsIgnoreCase("male")){
+				return MALE;
+			}
+			else if(input.equals("1")||input.equalsIgnoreCase("female")){
+				return FEMALE;
+			}
+			else throw new IllegalArgumentException("Enter a valid gender");
+		}
+	}
 }
