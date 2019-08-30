@@ -1,6 +1,8 @@
 package temaWeek12Enum.Main;
 
-public class Person<Date> {
+import java.util.Date;
+
+public class Person {
 
 	private String name;
 	private Date birthDate;
