@@ -8,13 +8,13 @@ public class CSV {
 	
 	public static List<String[]> readFromFile(String fileName) {
 		
-		List<String[]> persons=new ArrayList<>();
+		List<String[]> list=new ArrayList<>();
 		
 			String line;
 			try(BufferedReader br=new BufferedReader(new FileReader(fileName))){
 				while((line=br.readLine())!=null) {
 					String[] dateRecords=line.split(",");
-					persons.add(dateRecords);
+					list.add(dateRecords);
 				}
 			}catch (FileNotFoundException e){
 				System.err.println("FileNotFound exception found");
@@ -23,6 +23,6 @@ public class CSV {
 			}
 		
 		
-		return persons;
+		return list;
 	}
 }

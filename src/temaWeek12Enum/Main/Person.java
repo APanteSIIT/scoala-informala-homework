@@ -5,10 +5,10 @@ import java.util.Date;
 public class Person {
 
 	private String name;
-	private Date birthDate;
+	private String birthDate;
 	private String gender;
 	
-	public Person(String name,Date birthDate,String gender){
+	public Person(String name,String birthDate,String gender){
 		this.name=name;
 		this.birthDate=birthDate;
 		this.gender=gender;
@@ -22,11 +22,11 @@ public class Person {
 		this.name = name;
 	}
 	
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 	
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 	
