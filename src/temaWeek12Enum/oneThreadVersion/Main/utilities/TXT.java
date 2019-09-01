@@ -1,6 +1,6 @@
-package temaWeek12Enum.Main.utilities;
+package temaWeek12Enum.oneThreadVersion.Main.utilities;
 
-import temaWeek12Enum.Main.Person;
+import temaWeek12Enum.oneThreadVersion.Main.Person;
 
 import java.io.*;
 import java.util.ArrayList;

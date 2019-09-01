@@ -1,4 +1,4 @@
-package temaWeek12Enum.Main;
+package temaWeek12Enum.oneThreadVersion.Main;
 
 import java.io.File;
 import java.io.FilenameFilter;

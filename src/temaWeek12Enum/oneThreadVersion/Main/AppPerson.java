@@ -1,6 +1,6 @@
-package temaWeek12Enum.Main;
+package temaWeek12Enum.oneThreadVersion.Main;
 
-import temaWeek12Enum.Main.utilities.TXT;
+import temaWeek12Enum.oneThreadVersion.Main.utilities.TXT;
 
 import java.io.*;
 import java.util.ArrayList;
