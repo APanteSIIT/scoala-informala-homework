@@ -9,7 +9,7 @@ public class FindFilesByExt implements FilenameFilter {
 	
 	private final String extension;
 	
-	private FindFilesByExt(String extension) {
+	public FindFilesByExt(String extension) {
 		
 		this.extension = extension;
 	}
