@@ -7,9 +7,9 @@ import java.io.FilenameFilter;
 public class FindFilesByExt implements FilenameFilter {
 	
 	
-	private static String extension;
+	private final String extension;
 	
-	public FindFilesByExt(String extension) {
+	private FindFilesByExt(String extension) {
 		
 		this.extension = extension;
 	}
