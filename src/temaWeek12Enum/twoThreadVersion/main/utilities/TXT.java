@@ -1,34 +1,36 @@
-package temaWeek12Enum.oneThreadVersion.Main.utilities;
+package temaWeek12Enum.twoThreadVersion.main.utilities;
 
-import temaWeek12Enum.oneThreadVersion.Main.Person;
+import temaWeek12Enum.twoThreadVersion.main.Person;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TXT {
+public class TXT{
+
 //	method that reads from a file and returns a list of array strings
-	public static List<String[]> readFromFile(String fileName) {
-		
-		List<String[]> list = new ArrayList<>();
-		
-		String line;
-		try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-			while ((line = br.readLine())!=null) {
-				String[] dateRecords = line.split(",");
-				list.add(dateRecords);
+		public static List<String[]> readFromFile (String fileName){
+			
+			List<String[]> list = new ArrayList<>();
+			
+			String line;
+			try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+				while ((line = br.readLine())!=null) {
+					String[] dateRecords = line.split(",");
+					list.add(dateRecords);
+				}
+			} catch (FileNotFoundException e) {
+				System.err.println("FileNotFound exception found");
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.err.println("IOException was caught!");
+				e.printStackTrace();
 			}
-		} catch (FileNotFoundException e) {
-			System.err.println("FileNotFound exception found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.err.println("IOException was caught!");
-			e.printStackTrace();
+			
+			
+			return list;
 		}
-		
-		
-		return list;
-	}
+	
 //	method to write in a new file from a list of Persons
 	public static File writeToFile(List<Person> list,String filename) {
 		
@@ -47,6 +49,7 @@ public class TXT {
 		}
 		return new File(filename);
 	}
+	
 	
 }
 	
