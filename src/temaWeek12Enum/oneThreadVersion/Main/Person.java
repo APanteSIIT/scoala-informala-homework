@@ -1,5 +1,7 @@
 package temaWeek12Enum.oneThreadVersion.Main;
 
+import java.util.Objects;
+
 public class Person {
 	
 	private final String name;
@@ -64,5 +66,20 @@ public class Person {
 				", birthDate='" + birthDate + '\'' +
 				", gender='" + gender.toLowerCase() + '\'' +
 				'}' + "\n";
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this==o) return true;
+		if (o==null || getClass()!=o.getClass()) return false;
+		Person person = (Person) o;
+		return Objects.equals(name, person.name) &&
+				Objects.equals(birthDate, person.birthDate) &&
+				Objects.equals(gender, person.gender);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, birthDate, gender);
 	}
 }
