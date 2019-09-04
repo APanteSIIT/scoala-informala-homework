@@ -3,12 +3,17 @@ package temaWeek12Enum.oneThreadVersion.Main;
 import temaWeek12Enum.oneThreadVersion.Main.utilities.TXT;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AppPerson {
 	
-	private static final String location = "src\\temaWeek12Enum\\Main\\Utilities";
+	private static final String location = "src\\temaWeek12Enum\\oneThreadVersion\\Main\\utilities";
 	private static final String extension = ".txt";
 	private static List<Person> persons = new ArrayList<>();
 	private static List<Person> female = new ArrayList<>();
@@ -20,7 +25,7 @@ public class AppPerson {
 		
 //		create an instance of FindFilesByExt which searches a file based on .txt extension
 		FindFilesByExt files = new FindFilesByExt(extension);
-//		create a folder using location string
+		//		create a folder using location string
 		File folder = new File(location);
 //		create an array of strings containing all .txt files from folder
 		String[] fileList = folder.list(files);
@@ -49,7 +54,7 @@ public class AppPerson {
 		}
 //		call the writeToFile method from TXT class
 //		write to a new file called Female.txt persons from List<Person> female
-		TXT.writeToFile(female);
+		TXT.writeToFile(female,"Female1.txt");
 		
 //		find in how many milisec main thread runs
 		Thread.sleep(3000);
