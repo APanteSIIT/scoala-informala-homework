@@ -1,7 +1,6 @@
 package temaWeek7HashMap;
 
 
-
 public class Hobby {
 	
 	private String hobbyName;
