@@ -27,12 +27,12 @@ public class DatabaseConnectivity {
 	}
 	
 	public static void main(String[] args) {
-//		createConnection("mysql","localhost","3306","school","root","root");
-//		displayClasses();
-//		displaySpecificCourse(1);
+
+		displayAllClasses();
+//		displayCourse(1);
 //		displayTitle();
 //		displayDept();
-		displayProfName();
+//		displayProfName();
 	}
 	
 	/**
