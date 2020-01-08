@@ -3,8 +3,7 @@ package temaWeek7HashMap;
 
 public class Somer extends Persoane {
 
-	
-	public Somer(String name,int age)
+		public Somer(String name,int age)
 	{
 		super(name,age);
 		

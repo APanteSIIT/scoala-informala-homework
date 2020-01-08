@@ -3,7 +3,6 @@ package temaWeek7Comparator;
  * Implemented 2 comparators on a treeSet of persons:NameComparator and AgeComparator
  */
 
-
 import java.util.*;
 
 public class Persoane {
@@ -75,7 +74,7 @@ public class Persoane {
 		pers2.add(angajat3);
 		
 		System.out.println(("Sorting with comparator NameComparator: "));
-//iterated thru the TreeSet pers with NameComparator
+//iterated thrwu the TreeSet pers with NameComparator
 		for (Persoane p : pers) {
 			System.out.println(p.getName()+" age " +p.getAge() );
 			

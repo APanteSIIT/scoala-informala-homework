@@ -1,6 +1,5 @@
 package temaWeek7HashMap;
 
-
 public class Adresa {
 	private String streetName;
 	private int no;
