@@ -1,6 +1,5 @@
 package temaWeek7HashMap;
 
-
 public class Angajat extends Persoane {
 	
 
